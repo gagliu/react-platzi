@@ -5,10 +5,16 @@ import { DeleteIcon } from './DeleteIcon'
 // import { GoCheck } from "react-icons/go";
 
 function TodoItem(props) {
+  
+  console.log(' ---- props TodoItem ---- ', props);
+
   return (
     <li className="TodoItem">
 
-      <CompleteIcon/>
+      <CompleteIcon
+        completed={props.completed}
+        onComplete={props.onComplete}
+      />
       
 
       {/* Option 2 icons library */}
@@ -33,7 +39,9 @@ function TodoItem(props) {
         {props.text}
       </p>
 
-      <DeleteIcon/>
+      <DeleteIcon
+        onDelete={props.onDelete}
+      />
 
       {/* Option 2 icons library */}
       {/* <GoXCircle

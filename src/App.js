@@ -52,7 +52,7 @@ function App() {
     setTodos(newTodos);
   }
 
-  console.log('Los usuarios buscan todos de ' + searchValue);
+  // console.log('Los usuarios buscan todos de ' + searchValue);
   
   return (
     <>
