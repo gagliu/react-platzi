@@ -13,9 +13,26 @@ const defaultTodos = [
   { text: 'Usar estados derivados', completed: true },
 ];
 
+// localStorage no puede guardar estructuras complejas, solo puede guardar strings
+
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+// localStorage.removeItem('TODOS_V1');
+
 function App() {
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  console.log(' ---- localStorageTodos ---- ', localStorageTodos);
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos); //Los todos vienen como string, debe hacerse parse para que se vuelva un array
+  }
+
   //La funcion setTodos permite actualizar el listado inicial de acuerdo a cambios que se presenten en la UI
-  const [todos, setTodos] = React.useState(defaultTodos); //la variable todos se define o inicializa de defaultTodos
+  const [todos, setTodos] = React.useState(parsedTodos); //la variable todos se define o inicializa de defaultTodos
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(
@@ -31,6 +48,11 @@ function App() {
     }
   );
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  }
+
   const completeTodo = (text) => {
     const newTodos = [...todos]; //TODO - PROBAR con todos solos. Es mejor hacer solo una copia? para que newTodos no varie con todos
     
@@ -38,7 +60,7 @@ function App() {
       (todo) => todo.text == text
     )
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
   const deleteTodo = (text) => {
@@ -49,7 +71,7 @@ function App() {
     )
     // newTodos[todoIndex].completed = true;
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
   // console.log('Los usuarios buscan todos de ' + searchValue);
