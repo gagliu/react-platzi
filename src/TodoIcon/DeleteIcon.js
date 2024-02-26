@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoIcon } from "./TodoIcon";
+import { TodoIcon } from ".";
 
 /* onDelete es una funcion creada en App.js para eliminar todos */
 function DeleteIcon ({onDelete}) {
