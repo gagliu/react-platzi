@@ -1,0 +1,11 @@
+.todo-skeleton {
+  background: #F9FBFC;
+  border-radius: 2px;
+  /* border: 2px solid #202329; */
+  margin: 20px 0px 20px 0px;
+  height: 70px;
+  /* width: calc(100% - 62px); */
+  /* font-size: 24px; */
+  color: #1E1E1F;
+  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+}
