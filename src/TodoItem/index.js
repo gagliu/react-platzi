@@ -5,9 +5,6 @@ import { DeleteIcon } from '../TodoIcon/DeleteIcon'
 // import { GoCheck } from "react-icons/go";
 
 function TodoItem(props) {
-  
-  console.log(' ---- props TodoItem ---- ', props);
-
   return (
     <li className="TodoItem">
 
