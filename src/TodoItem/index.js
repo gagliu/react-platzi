@@ -5,8 +5,10 @@ import { DeleteIcon } from '../TodoIcon/DeleteIcon'
 // import { GoCheck } from "react-icons/go";
 
 function TodoItem(props) {
+  
   return (
     <li className="TodoItem">
+      
 
       <CompleteIcon
         completed={props.completed}

@@ -18,48 +18,37 @@ sino que se los debe pasar a otros componentes, eso es lo que queremos
 evitar.
 */
 function AppUI() {
+    const {
+        loading,
+        error,
+        searchedTodos,
+        completeTodo,
+        deleteTodo
+      } = React.useContext(TodoContext);
 
     return (
         <>
           {/* Eliminaresmo las propiedades aca tmbn. Solo los llamaremos y ya.
               Despues requeriremos las propiedades con el context
            */}
+        
           <TodoCounter/>
           <TodoSearch/>
-          
-          <TodoContext.Consumer>
-              {/* 
-                Render props
-                Espera una función
-                La funcion debe retornar los componentes
-              */}
-              {({
-                  /* Acá se reciben todas las propiedades que se están necesitando */
-                  loading,
-                  error,
-                  searchedTodos,
-                  completeTodo,
-                  deleteTodo
-              }) => (
-                  /* La funcion */
-                  <TodoList>
-                      { loading && <TodosLoading/>}
-                      { error && <TodosError/>}
-                      { ( !loading && searchedTodos.length == 0) &&  <EmptyTodos/>}
+          <TodoList>
+            { loading && <TodosLoading/>}
+            { error && <TodosError/>}
+            { ( !loading && searchedTodos.length == 0) &&  <EmptyTodos/>}
 
-                      {searchedTodos.map(todo => (
-                          <TodoItem
-                              key={todo.text}
-                              text={todo.text}
-                              onComplete={() => completeTodo(todo.text)}
-                              onDelete={() => deleteTodo(todo.text)}
-                          />
-                      ))}
-                  </TodoList>
-              )}
-
-              
-          </TodoContext.Consumer>
+            {searchedTodos.map(todo => (
+                <TodoItem
+                    key={todo.text}
+                    text={todo.text}
+                    completed={todo.completed}
+                    onComplete={() => completeTodo(todo.text)}
+                    onDelete={() => deleteTodo(todo.text)}
+                />
+            ))}
+           </TodoList>
           
           <CreateTodoButton />
         </>
