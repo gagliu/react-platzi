@@ -9,14 +9,6 @@ import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { TodoContext } from '../TodoContext';
 
-//como el archivo se llama index.js puede abreviarse, es como si se hiciera:
-// import { CreateTodoButton } from './CreateTodoButton/index.js'
-
-/* 
-Este componente recibe muchos parametros pero no los usa como tal, 
-sino que se los debe pasar a otros componentes, eso es lo que queremos
-evitar.
-*/
 function AppUI() {
     const {
         loading,
@@ -28,10 +20,6 @@ function AppUI() {
 
     return (
         <>
-          {/* Eliminaresmo las propiedades aca tmbn. Solo los llamaremos y ya.
-              Despues requeriremos las propiedades con el context
-           */}
-        
           <TodoCounter/>
           <TodoSearch/>
           <TodoList>

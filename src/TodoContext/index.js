@@ -26,8 +26,6 @@ function TodoProvider({ children }) {
         loading,
         error
       } = useLocalStorage('TODOS_V1', []);
-
-    //   console.log(' ---- todos context ---- ', todos);
     
       const [searchValue, setSearchValue] = React.useState('');
     
@@ -46,7 +44,9 @@ function TodoProvider({ children }) {
       );
     
       const completeTodo = (text) => {
-          const newTodos = [...todos]; //TODO - PROBAR con todos solos. Es mejor hacer solo una copia? para que newTodos no varie con todos
+          /* TODO - PROBAR con todos solos. Es mejor hacer solo una 
+          copia? para que newTodos no varie con todos */
+          const newTodos = [...todos];
           
           const todoIndex = newTodos.findIndex(
             (todo) => todo.text == text
@@ -56,12 +56,13 @@ function TodoProvider({ children }) {
       }
     
       const deleteTodo = (text) => {
-        const newTodos = [...todos]; //TODO - PROBAR con todos solos. Es mejor hacer solo una copia? para que newTodos no varie con todos
+        /* TODO - PROBAR con todos solos. Es mejor hacer solo una copia? para 
+        que newTodos no varie con todos */
+        const newTodos = [...todos];
         
         const todoIndex = newTodos.findIndex(
           (todo) => todo.text == text
         )
-        // newTodos[todoIndex].completed = true;
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
       }
