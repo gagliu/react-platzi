@@ -2,12 +2,6 @@ import React from "react";
 import { TodoIcon } from ".";
 
 function CompleteIcon ({completed, onComplete}) {
-    
-    console.log(' ---- props CompleteIcon ---- ', completed);
-
-    // const colorStates = {
-    //     'completed'
-    // }
 
     return (
         <TodoIcon

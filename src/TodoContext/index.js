@@ -66,8 +66,6 @@ function TodoProvider({ children }) {
         saveTodos(newTodos);
       }
 
-      console.log(' ---- searchedTodos context ---- ', searchedTodos);
-
       return (
         <TodoContext.Provider value={{
           loading,
