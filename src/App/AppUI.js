@@ -19,8 +19,6 @@ function AppUI() {
         deleteTodo,
         openModal,
       } = React.useContext(TodoContext);
-    
-    console.log(' ---- openModal ---- ', openModal );
 
     return (
         <>

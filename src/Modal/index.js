@@ -12,8 +12,7 @@ function Modal({ children }) {
         openModal, 
         setOpenModal
       } = React.useContext(TodoContext);
-
-    // const openModal = true;
+      
     const showHideClassName = openModal ? "Modal modal display-block" : "Modal modal display-none";
 
     /* 

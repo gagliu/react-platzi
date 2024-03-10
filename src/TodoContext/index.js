@@ -72,19 +72,6 @@ function TodoProvider({ children }) {
         saveTodos(newTodos);
       }
 
-      /* 
-      Estos metodos pueden ser reemplazados con:
-      setOpenModal(state => !state); en el onClick
-
-      const showModal = () => {
-          setOpenModal(true);
-      };
-    
-      const hideModal = () => {
-          setOpenModal(false);
-      };
-      */
-
       return (
         <TodoContext.Provider value={{
           loading,
