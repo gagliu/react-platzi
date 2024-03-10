@@ -4,8 +4,18 @@ u otra seccion de la app */
 import React from "react";
 // import ReactDOM from 'react-dom/client';
 import ReactDOM from 'react-dom';
+import './modal.css';
+import { TodoContext } from '../TodoContext';
 
 function Modal({ children }) {
+    const {
+        openModal, 
+        setOpenModal
+      } = React.useContext(TodoContext);
+
+    // const openModal = true;
+    const showHideClassName = openModal ? "Modal modal display-block" : "Modal modal display-none";
+
     /* 
         El compoente modal debe exponer
         (teletransportar) cualquier contenido 
@@ -24,8 +34,19 @@ function Modal({ children }) {
             Esa clase ayudara a dar estilo para que 
             aparezca por encima de la aplicacion
          */
-        <div className="Modal">
-            {children}
+        <div className={showHideClassName}>
+            <section className="modal-main">
+                {children}
+                <button type="button"
+                    onClick={
+                        () => {
+                          setOpenModal(state => !state);
+                        }
+                      }
+                >
+                Close
+                </button>
+            </section>
         </div>,
         /* 
             Debemos indicar a cual nodo queremos
@@ -37,6 +58,3 @@ function Modal({ children }) {
 }
 
 export { Modal };
-
-
-

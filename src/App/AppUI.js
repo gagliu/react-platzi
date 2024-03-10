@@ -18,8 +18,9 @@ function AppUI() {
         completeTodo,
         deleteTodo,
         openModal,
-        setOpenModal
       } = React.useContext(TodoContext);
+    
+    console.log(' ---- openModal ---- ', openModal );
 
     return (
         <>
@@ -28,7 +29,7 @@ function AppUI() {
           <TodoList>
             { loading && <TodosLoading/>}
             { error && <TodosError/>}
-            { ( !loading && searchedTodos.length == 0) &&  <EmptyTodos/>}
+            { ( !loading && searchedTodos.length === 0) &&  <EmptyTodos/>}
 
             {searchedTodos.map(todo => (
                 <TodoItem
@@ -46,7 +47,7 @@ function AppUI() {
           {/* Debe haber un estado que nos indique si abrir
           el modal o no */}
           {openModal && (
-              <Modal>
+              <Modal >
                   Funcionalidad de agregar todos
               </Modal>
           )}

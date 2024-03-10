@@ -4,11 +4,10 @@ import { useLocalStorage } from "./useLocalStorage";
 /* Asi creamos contextos */
 const TodoContext = React.createContext();
 
-/* Estas son las formas para usar el Provider y el Consumer */
-{/* 
-<TodoContext.Provider></TodoContext.Provider>
-<TodoContext.Consumer></TodoContext.Consumer> 
-*/}
+/* Estas son las formas para usar el Provider y el Consumer */ 
+{/* <TodoContext.Provider></TodoContext.Provider>
+<TodoContext.Consumer></TodoContext.Consumer>  */}
+
 
 /* Es mejor hacer un Provider personalizado */
 
@@ -34,13 +33,12 @@ function TodoProvider({ children }) {
       por defecto el modal estara cerrado y el valor sera
       false, por defecto.
       */
-      const [openModal, setOpenModal] = React.useState(true);
+      const [openModal, setOpenModal] = React.useState(false);
     
       const completedTodos = todos.filter(
           todo => !!todo.completed
       ).length;
       const totalTodos = todos.length;
-    
     
       const searchedTodos = todos.filter(
           (todo) => {
@@ -56,7 +54,7 @@ function TodoProvider({ children }) {
           const newTodos = [...todos];
           
           const todoIndex = newTodos.findIndex(
-            (todo) => todo.text == text
+            (todo) => todo.text === text
           )
           newTodos[todoIndex].completed = true;
           saveTodos(newTodos);
@@ -68,11 +66,24 @@ function TodoProvider({ children }) {
         const newTodos = [...todos];
         
         const todoIndex = newTodos.findIndex(
-          (todo) => todo.text == text
+          (todo) => todo.text === text
         )
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
       }
+
+      /* 
+      Estos metodos pueden ser reemplazados con:
+      setOpenModal(state => !state); en el onClick
+
+      const showModal = () => {
+          setOpenModal(true);
+      };
+    
+      const hideModal = () => {
+          setOpenModal(false);
+      };
+      */
 
       return (
         <TodoContext.Provider value={{
