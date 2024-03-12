@@ -27,6 +27,8 @@ function TodoProvider({ children }) {
       } = useLocalStorage('TODOS_V1', []);
     
       const [searchValue, setSearchValue] = React.useState('');
+      const [createTodoValue, setCreateTodoValue] = React.useState('');
+      
 
       /* 
       Crear estado y el actualizador del estado.
@@ -72,6 +74,22 @@ function TodoProvider({ children }) {
         saveTodos(newTodos);
       }
 
+      const createTodo = (text) => {
+        const newTodos = [...todos];
+        
+        const todoIndex = newTodos.findIndex(
+            (todo) => todo.text === text
+        )
+        
+        if (todoIndex >= 0) {
+            console.log(' ---- todo already exist ---- ');
+            return;
+        }
+
+        newTodos.push({text: text, completed: false});
+        saveTodos(newTodos);
+      }
+
       return (
         <TodoContext.Provider value={{
           loading,
@@ -84,7 +102,10 @@ function TodoProvider({ children }) {
           completeTodo,
           deleteTodo,
           openModal,
-          setOpenModal
+          setOpenModal,
+          createTodo,
+          createTodoValue,
+          setCreateTodoValue,
         }}>
           {children}
         </TodoContext.Provider>

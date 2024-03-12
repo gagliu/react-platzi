@@ -35,16 +35,16 @@ function Modal({ children }) {
          */
         <div className={showHideClassName}>
             <section className="modal-main">
-                {children}
-                <button type="button"
-                    onClick={
-                        () => {
-                          setOpenModal(state => !state);
+                {/* <button type="button"
+                        onClick={
+                            () => {
+                            setOpenModal(state => !state);
+                            }
                         }
-                      }
-                >
-                Close
-                </button>
+                    >
+                    Close
+                    </button> */}
+                {children}
             </section>
         </div>,
         /* 
