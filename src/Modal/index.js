@@ -9,8 +9,7 @@ import { TodoContext } from '../TodoContext';
 
 function Modal({ children }) {
     const {
-        openModal, 
-        setOpenModal
+        openModal
       } = React.useContext(TodoContext);
       
     const showHideClassName = openModal ? "Modal modal display-block" : "Modal modal display-none";

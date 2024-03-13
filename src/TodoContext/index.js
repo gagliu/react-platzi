@@ -82,7 +82,6 @@ function TodoProvider({ children }) {
         )
         
         if (todoIndex >= 0) {
-            console.log(' ---- todo already exist ---- ');
             return;
         }
 
