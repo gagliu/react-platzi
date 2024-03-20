@@ -5,37 +5,41 @@ import { TodoContext } from '../TodoContext';
 function TodoForm() {
     const {
         createTodo, 
-        setOpenModal,
-        createTodoValue,
-        setCreateTodoValue
-        
+        setOpenModal
       } = React.useContext(TodoContext);
     
-    //createTodo
+    //El contexto no es necesario de este no es necesario que sea global
+    //No todos los componentes lo tienen que saber
+    const[newTodoValue, setNewTodoValue] = React.useState('');
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        createTodo(newTodoValue);
+        setOpenModal(false);
+        setNewTodoValue('');
+    };
+
+    const onCancel = () => {
+        setOpenModal(false);
+    };
+
+    const onChange = (event) => {
+        setNewTodoValue(event.target.value);
+    };
 
     return (
-        <form onSubmit={(event) => {
-            event.preventDefault();
-            console.log(' ---- event ---- ', createTodoValue);
-            createTodo(createTodoValue);
-            setOpenModal(false);
-            setCreateTodoValue('');
-          }}>
+        <form onSubmit={onSubmit}>
             <label>Escribe un nuevo TODO</label>
             <textarea
                 placeholder="Cortar cebolla para
                 el almuerzo"
-                value={createTodoValue}
-                 onChange={(event) => {
-                     setCreateTodoValue(event.target.value);
-                  }}
+                value={newTodoValue}
+                onChange={onChange}
             />
             <div className="TodoForm-buttonContainer">
-                <button onClick={
-                            () => {
-                            setOpenModal(state => !state);
-                            }
-                        }
+                <button 
+                    type="button"
+                    onClick={onCancel}
                     className="TodoForm-button 
                     TodoForm-button--cancel"
                 >Cancelar</button>
