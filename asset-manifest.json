@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Users/juangiraldo/Code/reactLearning/react-platzi/build/static/css/main.ec631261.css",
-    "main.js": "/Users/juangiraldo/Code/reactLearning/react-platzi/build/static/js/main.11ce7ffc.js",
-    "index.html": "/Users/juangiraldo/Code/reactLearning/react-platzi/build/index.html",
-    "static/media/delete.svg": "/Users/juangiraldo/Code/reactLearning/react-platzi/build/static/media/delete.09cec7b6b89c6d11bfe8b21735aa0696.svg",
-    "static/media/check.svg": "/Users/juangiraldo/Code/reactLearning/react-platzi/build/static/media/check.d51fce26655dffa52e4dfc4d62307dbe.svg",
-    "main.ec631261.css.map": "/Users/juangiraldo/Code/reactLearning/react-platzi/build/static/css/main.ec631261.css.map",
-    "main.11ce7ffc.js.map": "/Users/juangiraldo/Code/reactLearning/react-platzi/build/static/js/main.11ce7ffc.js.map"
+    "main.css": "/react-platzi/static/css/main.ec631261.css",
+    "main.js": "/react-platzi/static/js/main.f58b5ebb.js",
+    "static/media/delete.svg": "/react-platzi/static/media/delete.09cec7b6b89c6d11bfe8b21735aa0696.svg",
+    "index.html": "/react-platzi/index.html",
+    "static/media/check.svg": "/react-platzi/static/media/check.d51fce26655dffa52e4dfc4d62307dbe.svg",
+    "main.ec631261.css.map": "/react-platzi/static/css/main.ec631261.css.map",
+    "main.f58b5ebb.js.map": "/react-platzi/static/js/main.f58b5ebb.js.map"
   },
   "entrypoints": [
     "static/css/main.ec631261.css",
-    "static/js/main.11ce7ffc.js"
+    "static/js/main.f58b5ebb.js"
   ]
 }
