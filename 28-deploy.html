@@ -1,0 +1,30 @@
+
+<!-- Permite crear una versión de producción -->
+npm run build
+
+<!-- Se crea este comando en package.json -->
+npm run deploy
+
+En el package.json se crea:
+"deploy": "gh-pages -d build"
+d es de directory y queremos desplegar la carpeta build.
+
+Se crea también un comando predeploy:
+"predeploy": "npm run build"
+Este se ejecuta antes del deploy y genera la carpeta build. Se ejecuta automaticamente solo agregando
+la palabra pre
+
+<!-- GH PAGES -->
+Gh pages se usa en local para hacer despliegues
+
+npm i --save-dev gh-pages
+
+Atencion  con paquete gh pages package, permite publicar el proyecto en github, con una url
+proporcionada por github.
+
+<!-- Esta propiedad en el package json permite indicar la ruta adecuada de los archivos cuando se ejecute el 
+    build para publicar en producción -->
+<!-- "homepage": "https://gagliu.github.io/react-platzi" -->
+
+Configuración de el repo publicado en:
+https://github.com/gagliu/react-platzi/settings/pages
