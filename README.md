@@ -1,6 +1,6 @@
 # Base repository to practice React.js
 
-In this repository you will find a functional application where you can have a benchmark of key concepts like:
+In this repository you will find a functional React.js application where you can have a benchmark of key concepts like:
 Components, props and attributes, events, states, local storage for React.js, custom hooks, effects, skeletons, 
 react context, portals and more.
 
